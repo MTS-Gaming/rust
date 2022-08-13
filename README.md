@@ -4,7 +4,7 @@ Template repository for building images with our steamcmd baseimage
 ## Usage
 
 ```Dockerfile
-FROM ghcr.io/mts-gaming/docker-steamcmd-template:latest
+FROM ghcr.io/mts-gaming/rust:latest
 ```
 
 ## Volumes
