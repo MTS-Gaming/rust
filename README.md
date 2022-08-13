@@ -11,5 +11,4 @@ FROM ghcr.io/mts-gaming/rust:latest
 
 | Path                                 | Description                                                                         | Volume Definition |
 |--------------------------------------|-------------------------------------------------------------------------------------|-------------------|
-| `/home/steam/.local`                 | Where games usually store their savegames.                                          | Yes               |
-| `/home/steam/Steam/steamapps/common` | Where games are installed by default (I.E. when `force_install_dir` is not defined) | No                |
+| `/home/steam/rust/server`            | Where the rust server data lives                                                    | Yes               |
