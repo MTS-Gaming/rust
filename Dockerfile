@@ -21,7 +21,7 @@ ENV LANG=${LANGUAGE} \
 RUN ["/home/steam/steamcmd/steamcmd.sh", \
     "+login", "anonymous", \
     "+force_install_dir", "/home/steam/rust", \
-    "+app_info_update", "1" \
+    "+app_info_update", "1", \
     "+app_update", "258550", "validate", \
     "+quit"]
 
