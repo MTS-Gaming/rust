@@ -19,8 +19,8 @@ ENV LANG=${LANGUAGE} \
 
 # Download Rust Dedicated Server via SteamCMD
 RUN ["/home/steam/steamcmd/steamcmd.sh", \
-    "+login", "anonymous", \
     "+force_install_dir", "/home/steam/rust", \
+    "+login", "anonymous", \
     "+app_info_update", "1", \
     "+app_update", "258550", "validate", \
     "+quit"]
