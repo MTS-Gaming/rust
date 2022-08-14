@@ -1,5 +1,10 @@
 FROM ghcr.io/mts-gaming/docker-steamcmd-base
 
+# Labels
+LABEL org.opencontainers.image.authors="andrew_stclair@hotmail.com"
+LABEL description="Rust Dedicated Server"
+LABEL version="v1.0.0"
+
 # Setting all the Environment Variables
 ARG LANGUAGE=en_US.UTF-8
 ARG PORT=28015
