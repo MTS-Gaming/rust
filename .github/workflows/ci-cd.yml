@@ -8,8 +8,6 @@ on:
       - "docs/**"
       - "examples/**"
   workflow_dispatch:
-  schedule:
-    - cron: '30 0 * * 0'
 
 jobs:
   build:
