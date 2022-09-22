@@ -1,4 +1,4 @@
-FROM ghcr.io/mts-gaming/docker-steamcmd-base
+FROM ghcr.io/mts-gaming/docker-steamcmd-base:latest
 
 # Labels
 LABEL org.opencontainers.image.authors="andrew_stclair@hotmail.com"
@@ -20,27 +20,35 @@ ENV LANG=${LANGUAGE} \
     TICK=10 \
     SAVEINT=600 \
     MAXPLAYERS=10 \
-    WORLDSIZE=4000
+    WORLDSIZE=4000 \
+    LD_LIBRARY_PATH=./RustDedicated_Data/Plugins:./RustDedicated_Data/Plugins/x86_64
 
 # Download Rust Dedicated Server via SteamCMD
-RUN ["/home/steam/steamcmd/steamcmd.sh", \
-    "+force_install_dir", "/home/steam/rust", \
+RUN ["/steamcmd/steamcmd.sh", \
+    "+force_install_dir", "/rust", \
     "+login", "anonymous", \
     "+app_info_update", "1", \
     "+app_update", "258550", "validate", \
     "+quit"]
 
-COPY --chown=Rust:root ./server.sh /home/steam/rust/server.sh
+WORKDIR /rust
 
-USER steam
-
-WORKDIR /home/steam/rust
-
-ENTRYPOINT [ "/bin/bash", "/home/steam/rust/server.sh" ]
+ENTRYPOINT [ "./RustDedicated", \
+    "+rcon.web", "1", \
+    "+rcon.password", "$RCON_PASS", \
+    "+rcon.port", "$RCON_PORT", \
+    "+server.port", "$PORT", \
+    "+server.hostname", "$SERVERNAME", \
+    "+server.seed", "$SEED", \
+    "+server.tickrate", "$TICK", \
+    "+server.saveinterval", "$SAVEINT", \
+    "+server.maxplayers", "$MAXPLAYERS", \
+    "+server.worldsize", "$WORLDSIZE", \
+    "+nav_disable" ]
 
 EXPOSE ${PORT}/udp
 EXPOSE ${PORT}/tcp
 EXPOSE ${RCON_PORT}/tcp
 
-# Volumes for Persistent Server Data
-VOLUME "/home/steam/rust/server"
+# Save data location
+VOLUME [ "/rust/server" ]

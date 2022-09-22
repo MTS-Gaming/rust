@@ -9,6 +9,6 @@ FROM ghcr.io/mts-gaming/rust:latest
 
 ## Volumes
 
-| Path                                 | Description                                                                         | Volume Definition |
-|--------------------------------------|-------------------------------------------------------------------------------------|-------------------|
-| `/home/steam/rust/server`            | Where the rust server data lives                                                    | Yes               |
+| Path                                 | Description                                                                         |
+|--------------------------------------|-------------------------------------------------------------------------------------|
+| `/home/steam/rust/server`            | Where the rust server save data lives                                               |
