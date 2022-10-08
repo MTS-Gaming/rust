@@ -5,6 +5,7 @@ on:
       - master
     paths-ignore:
       - "*.md"
+      - "*.env"
       - "docs/**"
       - "examples/**"
   workflow_dispatch:
