@@ -40,4 +40,4 @@ docker run \
 
 | Path                                 | Description                                                                         |
 |--------------------------------------|-------------------------------------------------------------------------------------|
-| `/rust/server`            | Where the rust server save data lives                                               |
+| `/rust/server`                       | Where the rust server save data lives                                               |
