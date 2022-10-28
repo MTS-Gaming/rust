@@ -37,7 +37,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - id: string
-        uses: ASzc/change-string-case-action@v3
+        uses: ASzc/change-string-case-action@v4
         with:
           string: ${{ github.repository }}
       
